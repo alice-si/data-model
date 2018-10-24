@@ -1,6 +1,5 @@
 const Mongoose = require('mongoose');
 const ModelUtils = require('./model-utils');
-const bcrypt = require('bcrypt');
 
 let Schema = Mongoose.Schema;
 
@@ -41,14 +40,5 @@ let UserSchema = new Schema({
   city: String,
   postCode: String
 });
-
-UserSchema.methods.comparePassword = function (passw, cb) {
-  bcrypt.compare(passw, this.password, function (err, isMatch) {
-    if (err) {
-      return cb(err);
-    }
-    cb(null, isMatch);
-  });
-};
 
 module.exports = ModelUtils.exportModel('User', UserSchema);
