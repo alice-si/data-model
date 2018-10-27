@@ -1,7 +1,7 @@
 const Mongoose = require('mongoose');
 const ModelUtils = require('./model-utils');
 
-const processNames = ['MINTING', 'DEPOSITING', 'COLLECTING'];
+const processNames = ['MINTING', 'DEPOSITING', 'COLLECTING', 'DAI_COLLECTING'];
 const statuses = ['CREATED', 'DONATED', '3DS'];
 
 let Schema = Mongoose.Schema;
@@ -22,7 +22,10 @@ let donationSchemaObj = {
     type: String,
     enum: ModelUtils.evaluateStatuses(processNames, statuses)
   },
-  transactionId: String
+  transactionId: String,
+
+  daiTx: String,
+  daiAddress: String
 };
 
 ModelUtils.addDateFields(processNames, donationSchemaObj);
