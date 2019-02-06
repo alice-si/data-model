@@ -13,6 +13,7 @@ let OutcomeSchema = new Mongoose.Schema({
   target: Number,
   hidden: Boolean,
   category: String,
+  color: String,
   _projectId: {
     type: Mongoose.Schema.ObjectId,
     ref: 'Project'
