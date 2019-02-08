@@ -1,15 +1,20 @@
 const Mongoose = require('mongoose');
 const ModelUtils = require('./model-utils');
 
-const mailStatuses = ["SENT", "NEW", "FAIL"];
+const mailProcesses = ["MAIL_SENDING"];
+const mailStatuses = ["CREATED"];
 
 let MailSchema = new Mongoose.Schema({
   from: String,
-  to: String,
+  to: Mongoose.Schema.Types.Mixed,
   subject: String,
   html: String,
   type: String,
-  status: {type: String, default: "NEW", enum: mailStatuses},
+  status: {
+    type: String,
+    default: "CREATED",
+    enum: ModelUtils.evaluateStatuses(mailProcesses, mailStatuses)
+  },
   sendDate: Date,
   createdAt: {type: Date, default: Date.now}
 });

@@ -29,6 +29,7 @@ let projectSchemaObject = {
   validator: String,
   initializerImg: String,
   validatorImg: String,
+  validatorUrl: String,
   costBreakdown: String,
 
   upfrontPayment: Number,
@@ -37,7 +38,8 @@ let projectSchemaObject = {
   perPerson: Number,
   externalFunding: Number,
   outcomesIntro: String,
-  contractAddress: String,
+  
+  ethAddresses: Mongoose.Schema.Types.Mixed,
 
   mangoContractWalletId: String,
   mangoBeneficiaryWalletId: String,
