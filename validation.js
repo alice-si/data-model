@@ -2,7 +2,7 @@ const Mongoose = require('mongoose');
 const ModelUtils = require('./model-utils');
 
 const processNames = ['CLAIMING', 'VALIDATING', 'LINKING', 'IMPACT_FETCHING'];
-const statuses = ['CREATED', 'LINKING_STEP_COMPLETED'];
+const statuses = ['CREATED', 'APPROVED', 'LINKING_STEP_COMPLETED'];
 
 let validationSchemaObject = {
   _projectId: {
