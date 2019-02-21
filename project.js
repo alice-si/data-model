@@ -40,6 +40,7 @@ let projectSchemaObject = {
   outcomesIntro: String,
   
   ethAddresses: Mongoose.Schema.Types.Mixed,
+  claimsRegistryAddress: String,
 
   mangoContractWalletId: String,
   mangoBeneficiaryWalletId: String,
